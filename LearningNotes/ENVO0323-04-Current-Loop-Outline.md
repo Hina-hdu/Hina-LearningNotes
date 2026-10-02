@@ -2,8 +2,9 @@
 title: ENVO0323 第04阶段：电流环复原大纲
 created: 2026-10-02
 updated: 2026-10-02
-project: ENVO0323
-stage: 04
+projects:
+  - ENVO0323
+stage: 04-Current-Loop
 status: 待逐步学习
 tags:
   - 编写大纲
@@ -111,6 +112,8 @@ ADC 原始值 → 偏置与 A 标定 → 采样窗口/过流检查 → Clarke/Pa
 任务：追踪窗口不足900计数、相电流超过 ±1 A、ADC错误、编码器年龄>2 ms、速度绝对值>45 rpm、非法目标到 `Trip()`。`App_Pwm_Stop()` 关输出、停计数并清 CCR；正常完成进入 IDLE，关闭输出但保留采样。
 
 完成标准：区分首次故障锁存、停止请求和3 s试验结束。当前 TIM1 Break未启用，不能当作已有 C2000 Trip Zone硬件保护；不得提高阈值或取消时限掩盖异常。
+
+还要核对关断宏的实际条件：当前 `DisableOutputs()` 先调用条件式 `__HAL_TIM_MOE_DISABLE`，再清通道使能。若调用前通道还开启，该宏可能不清 MOE；相通道会被后续清除，但不能只凭函数名认定 MOE 必为0。复原时先说明寄存器与实际关断波形的验证要求，本篇不直接修改这一实现。
 
 ## 第 12 步：建立 trace 与阶段验收
 
