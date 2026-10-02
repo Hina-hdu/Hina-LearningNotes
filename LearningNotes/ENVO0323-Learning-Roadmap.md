@@ -25,12 +25,12 @@ status: 规划已建立，待逐步学习
 
 ## 六大阶段入口
 
-1. [[ENVO0323-01-APP-Outline|01 · APP 基础组织：驱动怎样被应用使用]]
-2. [[ENVO0323-02-ADC-PWM-Outline|02 · 采样与执行接口：ADC 和 PWM 怎样配合]]
-3. [[ENVO0323-03-Feedback-Transforms-Outline|03 · 反馈与坐标变换：原始数据怎样变成控制量]]
-4. [[ENVO0323-04-Current-Loop-Outline|04 · 电流环与状态机：先完成核心闭环]]
-5. [[ENVO0323-05-Speed-Loop-Outline|05 · 速度环：在稳定电流环外提出转矩电流需求]]
-6. [[ENVO0323-06-Position-Loop-Outline|06 · 位置环：位置目标怎样变成速度和电流目标]]
+1. [[ENVO0323-01-APP-Outline|01 · APP 基础组织：11 步]]
+2. [[ENVO0323-02-ADC-PWM-Outline|02 · 采样与执行接口：12 步]]
+3. [[ENVO0323-03-Feedback-Transforms-Outline|03 · 反馈与坐标变换：12 步]]
+4. [[ENVO0323-04-Current-Loop-Outline|04 · 电流环与状态机：12 步]]
+5. [[ENVO0323-05-Speed-Loop-Outline|05 · 速度环扩展：10 步]]
+6. [[ENVO0323-06-Position-Loop-Outline|06 · 位置环扩展：10 步]]
 
 每份大纲都包含独立步骤目录。打开笔记后，可用 Obsidian 大纲侧栏按标题跳转，也可点击文内的步骤链接。
 
