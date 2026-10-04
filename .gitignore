@@ -1,0 +1,16 @@
+# Independent private knowledge repository; never include in the public diary.
+/EngineeringKnowledge/
+
+# Local Obsidian state and installed plugin binaries (keep portable settings).
+**/.obsidian/workspace*.json
+**/.obsidian/cache/
+**/.obsidian/plugins/
+**/.trash/
+*.tmp
+
+# Credentials are not learning material.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
