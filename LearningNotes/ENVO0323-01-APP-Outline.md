@@ -27,7 +27,7 @@ stage: 01-APP
 
 ## 现有事实与复原目标
 
-现有：`App_Init` 依次调用 BringUp、VOFA、MotorControl 初始化；`App_Run` 也按这个次序调用 Run。`App_MotorControl_Run` 当前为空，高速控制由 ADC 回调进入。`app_bringup.c` 同时承接板级自检、采样和 BSP 完成回调，职责并不等于只闪灯。
+现有：`App_Init` 依次调用 BringUp、VOFA、MotorControl 初始化；`App_Run` 依次调用 BringUp、MotorControl、VOFA 的 Run。`App_MotorControl_Run` 当前为空，高速控制由 ADC 回调进入。`app_bringup.c` 同时承接板级自检、采样和 BSP 完成回调，职责并不等于只闪灯。
 
 目标：理解并复原现有连接关系，建立可靠的观测解释。暂不改成 RTOS，也不假设工程已有独立算法层。
 
@@ -54,6 +54,8 @@ stage: 01-APP
 任务：复原 `app_main.h` 的两个声明，再整理 BringUp 与 VOFA 的 Init／Run 接口。职责：总入口负责调用，具体模块拥有自己的工作。完成标准：声明与定义一致，不把模块私有计时量塞入头文件。
 
 ## 第 3 步：整理初始化顺序
+
+当前主要复原任务：[[ENVO0323-App-BringUp-Init-Guide|App_BringUp_Init 复原学习指引]]。2026-10-04 已备份并移除此函数的声明与实现，其他代码保留；从入口与 DWT 计时准备开始，由 Hina 按功能块实现。
 
 任务：拆解 `App_BringUp_Init` 的 DWT 开启、ADC 校准与注入中断启动、EEPROM 测试、MT6816 绑定。MotorControl 初始化在其后启动采样定时器。完成标准：说明为何回调接收方和采样条件必须先准备；MT6816 绑定实际是 `hspi2`。
 
